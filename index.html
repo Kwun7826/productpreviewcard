@@ -4,271 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Recipe page</title>
+  <title>Frontend Mentor | Product preview card component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-
-    :root {
-      --heading-color : hsl(14, 45%, 36%);
-      --preparation-color : hsl(332, 51%, 32%);
-      --font-white : hsl(0, 0%, 100%);
-      --font-rose-white: hsl(330, 100%, 98%);
-      --font-eggshell: hsl(30, 54%, 90%);
-      --font-lightgrey: hsl(30, 18%, 87%);
-      --font-wengebrown: hsl(30, 10%, 34%);
-      --font-darkcharcoal: hsl(24, 5%, 18%);
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+  :root {
+    --clr-darkcyan: hsl(158, 36%, 37%);
+    --clr-cream: hsl(30, 38%, 92%);
+    --clr-darkblue: hsl(212, 21%, 14%);
+    --clr-darkgrayishblue: hsl(228, 12%, 48%);
+    --clr-white: hsl(0, 0%, 100%);
   }
-
-    body {
-      display: flex;
-      justify-content: center;
-      font-size: 16px;
-      color: var(--font-wengebrown);
-      font-weight: 400;
-      font-family: "Outfit", sans-serif;
-      font-optical-sizing: auto;
-      font-style: normal;
-    }
-    /* Big Container */
-    .container {
-      height: fit-content;
-      width: 1440px;
-      background-color: var(--font-eggshell);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Content */
-    .recipe-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: var(--font-white);
-      height: auto;
-      width: 50%;
-      padding: 40px;
-      margin: 50px;
-      border-radius: 40px;
-    }
-    /* Image */
-    .image{
-      background-image: url(/assets/images/image-omelette.jpeg);
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: auto;
-      height: 250px;
-      border-radius: 25px;
-    }
-    /* Introduction content */
-    .introduction > p:first-child {
-      color: var(--font-darkcharcoal);
-      font-size: 2em;
-      font-family: "Young Serif", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-    .introduction > p:last-of-type {
-    margin-bottom: 25px;
-    line-height: 1.5;
-   }
-   /* Universal ul and li styling */
-    ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      list-style-type: none;
-    }
-    li {
-      margin: 7px;
-    }
-    /* Preparation content */
-    .preparation {
-   
-      background-color: var(--font-rose-white);
-      padding: 10px;
-      border-radius: 10px;
-    }
-    /* Universal span element */
-    span {
-      margin-right: 20px;
-      color: var(--preparation-color);
-    }
-    
-    .preparation p {
-      font-family: "Outfit", sans-serif;
-      font-optical-sizing: auto;
-      font-style: normal;
-      margin-left: 30px;
-      color: var(--preparation-color);
-      font-weight: 700;
-      border-radius: 20px;
-      
-    }
-    /* Ingredient content */
-    .ingredients {
-      border-bottom: 1px solid var(--font-lightgrey);
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-    .ingredients > div > p:nth-child(1){
-      color: var(--heading-color);
-      font-size: 1.5em;
-      font-family: "Young Serif", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-   .ingredients > ul > li > span {
-      color: var(--heading-color);
-   }
-   .ingredients ul {
-    /* border: 1px solid black; */
-    padding-left: 0;
-    margin-top: 0px;
-   }
-   /* Instruction content */
-   .instruction{
-    border-bottom: 1px solid var(--heading-color);
-    margin-bottom: 30px;
-   }
-  .instruction > div > p {
-      color: var(--heading-color);
-      font-size: 1.5em;
-      font-family: "Young Serif", serif;
-      font-weight: 400;
-      font-style: normal;
-      
+  body {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500, 700;
+    font-style: normal;
   }
-  ol {
-    list-style-type: none;
-    padding-left: 5px;
-    line-height: 20px;
+  .container {
+    width: 1440px;
+    height: 1440px;
+    background-color: var(--clr-cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .instruction span {
-    font-weight: 600;
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    height: 800px;
+    border-radius: 20px;
+    background-color: var(--clr-white);
   }
-  /* Nutrition content */
-  .nutrition > p:first-child{
-    color: var(--heading-color);
-      font-size: 1.5em;
-      font-family: "Young Serif", serif;
-      font-weight: 400;
-      font-style: normal;
+  .image  {
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-image: url(/images/image-product-desktop.jpg);
+    border-radius: 20px;
   }
-  /* Table content */
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
   }
-  td {
-    text-align: left;
-    justify-content: space-between;
-    padding: 10px;
-    /* border: 1px solid black; */
+  .perfume {
+    letter-spacing: 0.5em;
+    font-size: large;
+    text-transform: uppercase;
+    color: var(--clr-darkgrayishblue);
   }
-  tr > td{
-    border-bottom: 1px solid var(--font-wengebrown);
+  .info > p:nth-of-type(2){
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
   }
-  tr > td:last-child{
-    font-weight: 600;
-    color: var(--heading-color);
+  .info > p:nth-of-type(3) {
+    color: var(--clr-darkgrayishblue);
+    line-height: 2;
+  }
+  .price {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .price p:first-child {
+    color: var(--clr-darkcyan);
+    font-size: 3rem;
+    text-align: center;
+    padding: 0;
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.5rem;
+    margin-right: 40px;
+  }
+  .price p:last-child{
+    text-align: center;
+    color: var(--clr-darkgrayishblue);
+    text-decoration: line-through ;
+    font-size: 24px;
+  }
+  button {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: var(--clr-darkcyan);
+    color: var(--clr-white);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  span {
+    margin-right: 20px;
   }
   .attribution {
-    margin-top: 30px;
+    font-size: 1em;
+    margin-top: auto;
   }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div class="recipe-container">
-      <!-- background image -->
+    <div class="product-container">
       <div class="image"></div>
-
-      <!-- Introduction -->
-      <div class="introduction">
-        <p class="omelette">Simple Omelette Recipe</p>
+      <div class="info">
+        <p class="perfume">Perfume</p>
+        <p>Gabrielle Essence Eau De Parfum</p>
         <p>
-        An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked
-        to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+          A floral, solar and voluptuous interpretation composed by Olivier Polge,
+          Perfumer-Creator for the House of CHANEL.
         </p>
-      <div>
-
-      <!-- Preparation -->
-      </div>
-      <div class="preparation">
-        <div>
-          <p>Preparation time</p>
+        <div class="price">
+         <p>$149.99</p>
+         <p>$$169.99</p>
         </div>
-        <ul>
-          <li><span>&#x2022;</span><strong>Total</strong>: Approximately 10 minutes</li>
-          <li><span>&#x2022;</span><strong>Preparation</strong>: 5 minutes</li>
-          <li><span>&#x2022;</span><strong>Cooking</strong>: 5 minutes</li>
-        </ul>
-      </div>
-      <div class="ingredients">
-        <div>
-          <p>Ingredients</p>
+        <button class="button"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="1em" height="1em" fill="white"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></span>Add to Cart</button>
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="#">Kwun7826</a>.
         </div>
-        <ul>
-          <li><span>&#x2022;</span>2-3 large eggs</li>
-          <li><span>&#x2022;</span>Salt, to taste</li>
-          <li><span>&#x2022;</span>Pepper, to taste</li>
-          <li><span>&#x2022;</span>1 tablespoon of butter or oil</li>
-          <li><span>&#x2022;</span>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
-        </ul>
-      </div>
-
-      <!-- Instructions  -->
-      <div class="instruction">
-        <div>
-          <p>Instructions</p>
-        </div>
-        <ol>
-          <li><span>1.</span>Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed.You can add a tablespoon of water or milk for a fluffier texture.</li>
-          <li><span>2.</span>Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.</li>
-          <li><span>3.</span>Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</li>
-          <li><span>4.</span>Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette.</li>
-          <li><span>5.</span>Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slide it onto a plate.</li>
-          <li><span>6.</span>Enjoy: Serve hot, with additional salt and pepper if needed.</li>
-        </ol>
-      </div>
-      <!-- Nutrition -->
-      <div class="nutrition">
-        <p>Nutrition</p>
-        <p>The table below shows nutritional values per serving without the additional fillings.</p>
-        <table>
-          <tr>
-            <td>Calories</td>
-            <td>277kcal</td>
-          </tr>
-          <tr>
-            <td>Carbs</td>
-            <td>0g</td>
-          </tr>
-          <tr>
-            <td>Protein</td>
-            <td>20g</td>
-          </tr>
-          <tr>
-            <td>Fat</td>
-            <td>22g</td>
-          </tr>
-        </table>
-      </div>
-      
-      <!-- Attribution -->
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded by <a href="#">Kwun7826</a>.
       </div>
     </div>
   </div>
